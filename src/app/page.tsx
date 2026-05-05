@@ -137,14 +137,9 @@ function HeroSlideshow({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.16),transparent_28%),linear-gradient(to_bottom,rgba(0,0,0,0.22),rgba(0,0,0,0.86))]" />
 
       <div className="relative z-10 mx-auto flex h-full max-w-6xl flex-col items-start justify-center px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="mb-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium text-white/80 backdrop-blur-xl"
-        >
+        <div className="mb-5 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium text-white/80 backdrop-blur-xl">
           Mobile detailing in Minneapolis
-        </motion.div>
+        </div>
 
         <motion.h1
           initial={{ opacity: 0, y: 28 }}
@@ -162,7 +157,8 @@ function HeroSlideshow({
           transition={{ duration: 0.75, delay: 0.22 }}
           className="mt-6 max-w-xl text-base leading-7 text-white/75 md:text-lg"
         >
-          Premium interior restoration, exterior detailing, ceramic protection, and fleet services delivered right to your driveway.
+          Premium interior restoration, exterior detailing, ceramic protection,
+          and fleet services delivered right to your driveway.
         </motion.p>
 
         <motion.div
@@ -242,7 +238,7 @@ function PackagesSection({ onSelectPackage }: { onSelectPackage: (pkg: string) =
       features: [
         "Everything in Silver",
         "Steam cleaning",
-        "Leather cleaned & conditioned",
+        "Leather cleaned and conditioned",
         "Carpets shampooed",
         "Door jambs cleaned",
         "Deep interior refresh",
@@ -314,7 +310,8 @@ function PackagesSection({ onSelectPackage }: { onSelectPackage: (pkg: string) =
 
       <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
         {baseTiers.map((tier, idx) => {
-          const adj = tier.title === "PLATINUM" ? tier.price : tier.price + sizeAdj[size];
+          const adj =
+            tier.title === "PLATINUM" ? tier.price : tier.price + sizeAdj[size];
           const label =
             tier.title === "PLATINUM"
               ? `${tier.title} - ${size.toUpperCase()} (Initial $${adj})`
@@ -374,9 +371,37 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
 
   const interior = {
     tiers: [
-      { name: "BRONZE", price: 75, rows: ["Trash removal", "Surface wipe down", "Quick vacuum", "Windows cleaned"] },
-      { name: "SILVER", price: 100, rows: ["Trash removal", "Surface wipe down", "Vacuum", "Leather cleaned", "Cloth seats shampooed", "Windows cleaned"] },
-      { name: "GOLD", price: 150, rows: ["Trash removal", "Surface wipe down", "Vacuum", "Steam cleaning", "Leather conditioned", "Seats shampooed", "Carpets shampooed", "Door jambs cleaned"] },
+      {
+        name: "BRONZE",
+        price: 75,
+        rows: ["Trash removal", "Surface wipe down", "Quick vacuum", "Windows cleaned"],
+      },
+      {
+        name: "SILVER",
+        price: 100,
+        rows: [
+          "Trash removal",
+          "Surface wipe down",
+          "Vacuum",
+          "Leather cleaned",
+          "Cloth seats shampooed",
+          "Windows cleaned",
+        ],
+      },
+      {
+        name: "GOLD",
+        price: 150,
+        rows: [
+          "Trash removal",
+          "Surface wipe down",
+          "Vacuum",
+          "Steam cleaning",
+          "Leather conditioned",
+          "Seats shampooed",
+          "Carpets shampooed",
+          "Door jambs cleaned",
+        ],
+      },
     ],
   };
 
@@ -403,7 +428,7 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
       "Exterior wash + wheels",
       "Full interior vacuum",
       "Dashboard + console wipe down",
-      "Windows inside & out",
+      "Windows inside and out",
       "Light stain removal",
       "Optional add-ons available",
     ],
@@ -436,7 +461,9 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
               onClick={() => setTab(t.key)}
               className={[
                 "rounded-2xl px-4 py-3 text-xs font-bold transition md:text-sm",
-                active ? "bg-white text-black" : "text-white/65 hover:bg-white/10 hover:text-white",
+                active
+                  ? "bg-white text-black"
+                  : "text-white/65 hover:bg-white/10 hover:text-white",
               ].join(" ")}
             >
               {t.label}
@@ -463,7 +490,10 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
                   <div className="mx-5 my-4 border-t border-white/10" />
                   <ul className="px-5 pb-4">
                     {t.rows.map((r) => (
-                      <li key={r} className="border-b border-white/10 py-2 text-sm text-neutral-300 last:border-b-0">
+                      <li
+                        key={r}
+                        className="border-b border-white/10 py-2 text-sm text-neutral-300 last:border-b-0"
+                      >
                         {r}
                       </li>
                     ))}
@@ -493,7 +523,10 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
                 <h3 className="text-lg font-bold tracking-wide">Pricing</h3>
                 <div className="my-4 border-t border-white/10" />
                 {ceramic.rows.map((r) => (
-                  <div key={r.label} className="flex justify-between border-b border-white/10 py-3 text-sm last:border-b-0">
+                  <div
+                    key={r.label}
+                    className="flex justify-between border-b border-white/10 py-3 text-sm last:border-b-0"
+                  >
                     <span className="text-neutral-300">{r.label}</span>
                     <span className="font-bold">${r.price}</span>
                   </div>
@@ -511,7 +544,10 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
                 <h3 className="text-lg font-bold tracking-wide">Includes</h3>
                 <div className="my-4 border-t border-white/10" />
                 {ceramic.includes.map((i) => (
-                  <div key={i} className="border-b border-white/10 py-3 text-sm text-neutral-300 last:border-b-0">
+                  <div
+                    key={i}
+                    className="border-b border-white/10 py-3 text-sm text-neutral-300 last:border-b-0"
+                  >
                     {i}
                   </div>
                 ))}
@@ -532,7 +568,10 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
                 <p className="mt-2 text-sm leading-6 text-neutral-400">{fleet.description}</p>
                 <div className="my-4 border-t border-white/10" />
                 {fleet.includes.map((i) => (
-                  <div key={i} className="border-b border-white/10 py-3 text-sm text-neutral-300 last:border-b-0">
+                  <div
+                    key={i}
+                    className="border-b border-white/10 py-3 text-sm text-neutral-300 last:border-b-0"
+                  >
                     {i}
                   </div>
                 ))}
@@ -542,9 +581,14 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
                 <h3 className="text-lg font-bold tracking-wide">Fleet Pricing</h3>
                 <div className="my-4 border-t border-white/10" />
                 {fleet.tiers.map((t) => (
-                  <div key={t.label} className="flex justify-between border-b border-white/10 py-3 text-sm last:border-b-0">
+                  <div
+                    key={t.label}
+                    className="flex justify-between border-b border-white/10 py-3 text-sm last:border-b-0"
+                  >
                     <span className="text-neutral-300">{t.label}</span>
-                    <span className="font-bold">{t.note} ${t.price}</span>
+                    <span className="font-bold">
+                      {t.note} ${t.price}
+                    </span>
                   </div>
                 ))}
                 <a
@@ -564,7 +608,14 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
 }
 
 export default function Home() {
-  const [inq, setInq] = useState({ name: "", email: "", phone: "", vehicle: "", message: "", company: "" });
+  const [inq, setInq] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    vehicle: "",
+    message: "",
+    company: "",
+  });
   const [inqBusy, setInqBusy] = useState(false);
   const [inqOK, setInqOK] = useState(false);
   const [inqErr, setInqErr] = useState<string | null>(null);
@@ -596,7 +647,10 @@ export default function Home() {
 
   function handleSelectPackage(pkg: string) {
     setBk((v) => ({ ...v, package: pkg }));
-    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    document.getElementById("booking")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   }
 
   function validEmail(e: string) {
@@ -650,7 +704,14 @@ export default function Home() {
     if (error) return setBkErr(error.message);
 
     setBkOK(true);
-    setBk({ name: "", email: "", phone: "", vehicle: "", package: "Interior + Exterior", company: "" });
+    setBk({
+      name: "",
+      email: "",
+      phone: "",
+      vehicle: "",
+      package: "Interior + Exterior",
+      company: "",
+    });
   }
 
   const gallery = [
@@ -672,7 +733,9 @@ export default function Home() {
               alt="AC Detailing & Cleaning"
               className="h-9 w-[140px] object-contain"
             />
-            <span className="hidden font-semibold tracking-tight sm:block">AC Detailing</span>
+            <span className="hidden font-semibold tracking-tight sm:block">
+              AC Detailing
+            </span>
           </Link>
 
           <nav className="hidden gap-7 text-sm text-white/70 md:flex">
@@ -691,7 +754,10 @@ export default function Home() {
             ))}
           </nav>
 
-          <a href="#booking" className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur-xl transition hover:bg-white hover:text-black">
+          <a
+            href="#booking"
+            className="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-sm font-semibold backdrop-blur-xl transition hover:bg-white hover:text-black"
+          >
             Book Now
           </a>
         </div>
@@ -709,9 +775,18 @@ export default function Home() {
 
         <div className="mt-9 grid gap-6 md:grid-cols-3">
           {[
-            { t: "Express Wash", d: "Foam wash, wheels, windows, and quick interior tidy." },
-            { t: "Interior + Exterior", d: "Deep interior clean with shampoo, steam, and exterior finish." },
-            { t: "Platinum Detail", d: "Decon, polish, trim dress, tires, and full interior restoration." },
+            {
+              t: "Express Wash",
+              d: "Foam wash, wheels, windows, and quick interior tidy.",
+            },
+            {
+              t: "Interior + Exterior",
+              d: "Deep interior clean with shampoo, steam, and exterior finish.",
+            },
+            {
+              t: "Platinum Detail",
+              d: "Decon, polish, trim dress, tires, and full interior restoration.",
+            },
           ].map((s, idx) => (
             <Reveal key={s.t} delay={idx * 0.05}>
               <motion.div
@@ -730,51 +805,44 @@ export default function Home() {
 
       <PricingGuidesSection onSelectPackage={handleSelectPackage} />
 
-      <section id="results" className="bg-neutral-950 py-20">
+      <section id="results" className="bg-neutral-950 py-16">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <h2 className="text-center text-4xl font-black tracking-[-0.04em]"
-        {/* CUSTOMER RESULTS */}
-<section id="results" className="py-24 bg-neutral-950">
-  <div className="max-w-7xl mx-auto px-6">
-    <h2 className="text-4xl font-extrabold tracking-tight text-center mb-16">
-      Customer Results
-    </h2>
+            <h2 className="mb-10 text-center text-4xl font-black tracking-[-0.04em]">
+              Customer Results
+            </h2>
+          </Reveal>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      {[
-        { srcs: ["/before-after-seat.jpeg"], caption: "Interior Seat Restoration" },
-        { srcs: ["/before-after-mats.jpeg"], caption: "Floor Mat Deep Clean" },
-        { srcs: ["/before-after-door.jpeg"], caption: "Door Panel Refresh" },
-        { srcs: ["/before-after-trunk.jpeg"], caption: "Full Trunk Cleanout" },
-        { srcs: ["/interior.jpeg"], caption: "Interior Refresh" },
-        { srcs: ["/Mold-removal.jpeg"], caption: "Mold Removal" },
-      ].map((card) => (
-        <div
-          key={card.caption}
-          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black"
-        >
-          {/* Image */}
-          <SmartImg
-            sources={card.srcs}
-            alt={card.caption}
-            className="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
-          />
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { srcs: ["/before-after-seat.jpeg"], caption: "Interior Seat Restoration" },
+              { srcs: ["/before-after-mats.jpeg"], caption: "Floor Mat Deep Clean" },
+              { srcs: ["/before-after-door.jpeg"], caption: "Door Panel Refresh" },
+              { srcs: ["/before-after-trunk.jpeg"], caption: "Full Trunk Cleanout" },
+              { srcs: ["/interior.jpeg"], caption: "Interior Refresh" },
+              { srcs: ["/Mold-removal.jpeg"], caption: "Mold Removal" },
+            ].map((card, idx) => (
+              <Reveal key={card.caption} delay={idx * 0.03}>
+                <motion.button
+                  whileHover={{ y: -4, scale: 1.01 }}
+                  onClick={() => setLightbox(card.srcs[0])}
+                  className="group relative h-[240px] w-full overflow-hidden rounded-[1.5rem] border border-white/10 bg-black shadow-xl shadow-black/30 md:h-[260px]"
+                >
+                  <SmartImg
+                    sources={card.srcs}
+                    alt={card.caption}
+                    className="h-full w-full object-contain bg-black transition duration-500 group-hover:scale-[1.03]"
+                  />
 
-          {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition" />
-
-          {/* Text */}
-          <div className="absolute bottom-0 w-full p-4">
-            <p className="text-sm text-white/90 font-medium">
-              {card.caption}
-            </p>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 to-transparent p-4 text-left">
+                    <p className="text-sm font-semibold text-white">{card.caption}</p>
+                  </div>
+                </motion.button>
+              </Reveal>
+            ))}
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</section>
+      </section>
 
       <section id="gallery" className="mx-auto max-w-6xl px-6 py-20">
         <Reveal>
@@ -789,7 +857,11 @@ export default function Home() {
                 onClick={() => setLightbox(srcs[0])}
                 className="block w-full overflow-hidden rounded-[1.7rem] border border-white/10 bg-white/[0.04]"
               >
-                <SmartImg sources={srcs} alt="Gallery image" className="h-44 w-full object-cover md:h-60" />
+                <SmartImg
+                  sources={srcs}
+                  alt="Gallery image"
+                  className="h-44 w-full object-cover md:h-60"
+                />
               </motion.button>
             </Reveal>
           ))}
@@ -812,7 +884,11 @@ export default function Home() {
                 className="relative h-[82vh] w-full max-w-6xl"
                 onClick={(e) => e.stopPropagation()}
               >
-                <SmartImg sources={[lightbox]} alt="Expanded view" className="h-full w-full rounded-[2rem] object-contain" />
+                <SmartImg
+                  sources={[lightbox]}
+                  alt="Expanded view"
+                  className="h-full w-full rounded-[2rem] object-contain"
+                />
                 <button
                   onClick={() => setLightbox(null)}
                   className="absolute right-4 top-4 rounded-full border border-white/15 bg-black/55 px-4 py-2 text-sm font-semibold text-white backdrop-blur-xl transition hover:bg-white hover:text-black"
@@ -843,8 +919,12 @@ export default function Home() {
                 whileHover={{ y: -6 }}
                 className="rounded-[2rem] border border-white/15 bg-white/[0.04] p-6 backdrop-blur-xl"
               >
-                <blockquote className="text-sm leading-6 text-white/85">“{t.q}”</blockquote>
-                <figcaption className="mt-4 text-xs text-neutral-400">- {t.n}</figcaption>
+                <blockquote className="text-sm leading-6 text-white/85">
+                  “{t.q}”
+                </blockquote>
+                <figcaption className="mt-4 text-xs text-neutral-400">
+                  - {t.n}
+                </figcaption>
               </motion.figure>
             </Reveal>
           ))}
@@ -856,19 +936,62 @@ export default function Home() {
           <h2 className="text-4xl font-black tracking-[-0.04em]">Get a free quote</h2>
         </Reveal>
 
-        <form onSubmit={submitInquiry} className="mt-8 grid grid-cols-1 gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl md:grid-cols-2">
-          <input className="hidden" tabIndex={-1} autoComplete="off" value={inq.company} onChange={(e) => setInq((v) => ({ ...v, company: e.target.value }))} />
-          <input className={inputClass} placeholder="Name" required value={inq.name} onChange={(e) => setInq((v) => ({ ...v, name: e.target.value }))} />
-          <input className={inputClass} type="email" placeholder="Email" required value={inq.email} onChange={(e) => setInq((v) => ({ ...v, email: e.target.value }))} />
-          <input className={inputClass} placeholder="Phone" value={inq.phone} onChange={(e) => setInq((v) => ({ ...v, phone: e.target.value }))} />
-          <input className={inputClass} placeholder="Vehicle (Make/Model/Year)" value={inq.vehicle} onChange={(e) => setInq((v) => ({ ...v, vehicle: e.target.value }))} />
-          <textarea className={`${inputClass} md:col-span-2`} rows={5} placeholder="Tell us what you need" required value={inq.message} onChange={(e) => setInq((v) => ({ ...v, message: e.target.value }))} />
+        <form
+          onSubmit={submitInquiry}
+          className="mt-8 grid grid-cols-1 gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl md:grid-cols-2"
+        >
+          <input
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            value={inq.company}
+            onChange={(e) => setInq((v) => ({ ...v, company: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Name"
+            required
+            value={inq.name}
+            onChange={(e) => setInq((v) => ({ ...v, name: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            type="email"
+            placeholder="Email"
+            required
+            value={inq.email}
+            onChange={(e) => setInq((v) => ({ ...v, email: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Phone"
+            value={inq.phone}
+            onChange={(e) => setInq((v) => ({ ...v, phone: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Vehicle (Make/Model/Year)"
+            value={inq.vehicle}
+            onChange={(e) => setInq((v) => ({ ...v, vehicle: e.target.value }))}
+          />
+          <textarea
+            className={`${inputClass} md:col-span-2`}
+            rows={5}
+            placeholder="Tell us what you need"
+            required
+            value={inq.message}
+            onChange={(e) => setInq((v) => ({ ...v, message: e.target.value }))}
+          />
 
           <div className="md:col-span-2 flex items-center gap-4">
             <button disabled={inqBusy} className={primaryButton}>
               {inqBusy ? "Sending..." : "Send"}
             </button>
-            {inqOK && <span className="text-sm text-emerald-400">Thanks, we will be in touch shortly.</span>}
+            {inqOK && (
+              <span className="text-sm text-emerald-400">
+                Thanks, we will be in touch shortly.
+              </span>
+            )}
             {inqErr && <span className="text-sm text-red-400">{inqErr}</span>}
           </div>
         </form>
@@ -876,22 +999,65 @@ export default function Home() {
 
       <section id="booking" className="mx-auto max-w-6xl px-6 pb-24">
         <Reveal>
-          <h2 className="text-4xl font-black tracking-[-0.04em]">Schedule your detail</h2>
+          <h2 className="text-4xl font-black tracking-[-0.04em]">
+            Schedule your detail
+          </h2>
         </Reveal>
 
-        <form onSubmit={submitBooking} className="mt-8 grid grid-cols-1 gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl md:grid-cols-2">
-          <input className="hidden" tabIndex={-1} autoComplete="off" value={bk.company} onChange={(e) => setBk((v) => ({ ...v, company: e.target.value }))} />
-          <input className={inputClass} placeholder="Full Name" required value={bk.name} onChange={(e) => setBk((v) => ({ ...v, name: e.target.value }))} />
-          <input className={inputClass} type="email" placeholder="Email" required value={bk.email} onChange={(e) => setBk((v) => ({ ...v, email: e.target.value }))} />
-          <input className={inputClass} placeholder="Phone (SMS)" value={bk.phone} onChange={(e) => setBk((v) => ({ ...v, phone: e.target.value }))} />
-          <input className={inputClass} placeholder="Vehicle (Make/Model/Year)" value={bk.vehicle} onChange={(e) => setBk((v) => ({ ...v, vehicle: e.target.value }))} />
-          <input className={inputClass} placeholder="Selected Package" value={bk.package} onChange={(e) => setBk((v) => ({ ...v, package: e.target.value }))} />
+        <form
+          onSubmit={submitBooking}
+          className="mt-8 grid grid-cols-1 gap-3 rounded-[2rem] border border-white/10 bg-white/[0.035] p-5 backdrop-blur-xl md:grid-cols-2"
+        >
+          <input
+            className="hidden"
+            tabIndex={-1}
+            autoComplete="off"
+            value={bk.company}
+            onChange={(e) => setBk((v) => ({ ...v, company: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Full Name"
+            required
+            value={bk.name}
+            onChange={(e) => setBk((v) => ({ ...v, name: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            type="email"
+            placeholder="Email"
+            required
+            value={bk.email}
+            onChange={(e) => setBk((v) => ({ ...v, email: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Phone (SMS)"
+            value={bk.phone}
+            onChange={(e) => setBk((v) => ({ ...v, phone: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Vehicle (Make/Model/Year)"
+            value={bk.vehicle}
+            onChange={(e) => setBk((v) => ({ ...v, vehicle: e.target.value }))}
+          />
+          <input
+            className={inputClass}
+            placeholder="Selected Package"
+            value={bk.package}
+            onChange={(e) => setBk((v) => ({ ...v, package: e.target.value }))}
+          />
 
           <div className="md:col-span-2 flex items-center gap-4">
             <button disabled={bkBusy} className={primaryButton}>
               {bkBusy ? "Sending..." : "Request Appointment"}
             </button>
-            {bkOK && <span className="text-sm text-emerald-400">We will confirm by email/text.</span>}
+            {bkOK && (
+              <span className="text-sm text-emerald-400">
+                We will confirm by email/text.
+              </span>
+            )}
             {bkErr && <span className="text-sm text-red-400">{bkErr}</span>}
           </div>
         </form>
