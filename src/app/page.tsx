@@ -366,8 +366,8 @@ function PricingGuidesSection({ onSelectPackage }: { onSelectPackage: (pkg: stri
     subtitle: "PAINT CORRECTION & CERAMIC COATING",
     rows: [
       { label: "Sedan", price: 550 },
-      { label: "SUV", price: 450 },
-      { label: "Full Size SUV / Truck", price: 600 },
+      { label: "SUV", price: 700 },
+      { label: "Full Size SUV / Truck", price: 800 },
     ],
     includes: [
       "Gentle Hand Car Wash",
