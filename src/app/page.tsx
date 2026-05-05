@@ -751,7 +751,7 @@ export default function Home() {
                   onClick={() => setLightbox(card.srcs[0])}
                   className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] text-left shadow-2xl shadow-black/30"
                 >
-                  <SmartImg sources={card.srcs} alt={card.caption} className="h-72 w-full object-cover transition group-hover:opacity-85" />
+                  <SmartImg sources={card.srcs} alt={card.caption} className="h-80 w-full object-contain bg-black transition group-hover:opacity-85" />
                   <div className="p-5 text-center text-sm font-medium text-gray-300">{card.caption}</div>
                 </motion.button>
               </Reveal>
