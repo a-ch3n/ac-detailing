@@ -733,32 +733,48 @@ export default function Home() {
       <section id="results" className="bg-neutral-950 py-20">
         <div className="mx-auto max-w-7xl px-6">
           <Reveal>
-            <h2 className="text-center text-4xl font-black tracking-[-0.04em]">Customer Results</h2>
-          </Reveal>
+            <h2 className="text-center text-4xl font-black tracking-[-0.04em]"
+        {/* CUSTOMER RESULTS */}
+<section id="results" className="py-24 bg-neutral-950">
+  <div className="max-w-7xl mx-auto px-6">
+    <h2 className="text-4xl font-extrabold tracking-tight text-center mb-16">
+      Customer Results
+    </h2>
 
-          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              { srcs: ["/before-after-seat.jpeg"], caption: "Interior Seat Restoration" },
-              { srcs: ["/before-after-mats.jpeg"], caption: "Floor Mat Deep Clean" },
-              { srcs: ["/before-after-door.jpeg"], caption: "Door Panel Refresh" },
-              { srcs: ["/before-after-trunk.jpeg"], caption: "Full Trunk Cleanout" },
-              { srcs: ["/interior.jpeg"], caption: "Interior Refresh" },
-              { srcs: ["/Mold-removal.jpeg"], caption: "Mold Removal" },
-            ].map((card, idx) => (
-              <Reveal key={card.caption} delay={idx * 0.04}>
-                <motion.button
-                  whileHover={{ y: -8, scale: 1.01 }}
-                  onClick={() => setLightbox(card.srcs[0])}
-                  className="group overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] text-left shadow-2xl shadow-black/30"
-                >
-                  <SmartImg sources={card.srcs} alt={card.caption} className="h-80 w-full object-contain bg-black transition group-hover:opacity-85" />
-                  <div className="p-5 text-center text-sm font-medium text-gray-300">{card.caption}</div>
-                </motion.button>
-              </Reveal>
-            ))}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        { srcs: ["/before-after-seat.jpeg"], caption: "Interior Seat Restoration" },
+        { srcs: ["/before-after-mats.jpeg"], caption: "Floor Mat Deep Clean" },
+        { srcs: ["/before-after-door.jpeg"], caption: "Door Panel Refresh" },
+        { srcs: ["/before-after-trunk.jpeg"], caption: "Full Trunk Cleanout" },
+        { srcs: ["/interior.jpeg"], caption: "Interior Refresh" },
+        { srcs: ["/Mold-removal.jpeg"], caption: "Mold Removal" },
+      ].map((card) => (
+        <div
+          key={card.caption}
+          className="group relative overflow-hidden rounded-2xl border border-white/10 bg-black"
+        >
+          {/* Image */}
+          <SmartImg
+            sources={card.srcs}
+            alt={card.caption}
+            className="h-64 w-full object-cover transition duration-500 group-hover:scale-105"
+          />
+
+          {/* Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition" />
+
+          {/* Text */}
+          <div className="absolute bottom-0 w-full p-4">
+            <p className="text-sm text-white/90 font-medium">
+              {card.caption}
+            </p>
           </div>
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       <section id="gallery" className="mx-auto max-w-6xl px-6 py-20">
         <Reveal>
